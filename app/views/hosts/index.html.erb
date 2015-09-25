@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Hosts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Smokes</th>
+      <th>Dogs</th>
+      <th>Cats</th>
+      <th>Bedding</th>
+      <th>Towels</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hosts.each do |host| %>
+      <tr>
+        <td><%= host.smokes %></td>
+        <td><%= host.dogs %></td>
+        <td><%= host.cats %></td>
+        <td><%= host.bedding %></td>
+        <td><%= host.towels %></td>
+        <td><%= link_to 'Show', host %></td>
+        <td><%= link_to 'Edit', edit_host_path(host) %></td>
+        <td><%= link_to 'Destroy', host, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Host', new_host_path %>

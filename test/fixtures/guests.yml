@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  smoking: MyString
+  dogs: MyString
+  cats: MyString
+  bedding: MyString
+  towels: MyString
+
+two:
+  smoking: MyString
+  dogs: MyString
+  cats: MyString
+  bedding: MyString
+  towels: MyString

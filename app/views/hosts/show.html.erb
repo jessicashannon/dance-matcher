@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Smokes:</strong>
+  <%= @host.smokes %>
+</p>
+
+<p>
+  <strong>Dogs:</strong>
+  <%= @host.dogs %>
+</p>
+
+<p>
+  <strong>Cats:</strong>
+  <%= @host.cats %>
+</p>
+
+<p>
+  <strong>Bedding:</strong>
+  <%= @host.bedding %>
+</p>
+
+<p>
+  <strong>Towels:</strong>
+  <%= @host.towels %>
+</p>
+
+<%= link_to 'Edit', edit_host_path(@host) %> |
+<%= link_to 'Back', hosts_path %>

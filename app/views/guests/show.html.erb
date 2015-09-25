@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Smoking:</strong>
+  <%= @guest.smoking %>
+</p>
+
+<p>
+  <strong>Dogs:</strong>
+  <%= @guest.dogs %>
+</p>
+
+<p>
+  <strong>Cats:</strong>
+  <%= @guest.cats %>
+</p>
+
+<p>
+  <strong>Bedding:</strong>
+  <%= @guest.bedding %>
+</p>
+
+<p>
+  <strong>Towels:</strong>
+  <%= @guest.towels %>
+</p>
+
+<%= link_to 'Edit', edit_guest_path(@guest) %> |
+<%= link_to 'Back', guests_path %>

@@ -1,0 +1,49 @@
+<%= form_for(@guest) do |f| %>
+  <% if @guest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@guest.errors.count, "error") %> prohibited this guest from being saved:</h2>
+
+      <ul>
+      <% @guest.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>Do you smoke?</p>
+  <%= label_tag(:smoking, 'Yes') %>
+  <%= radio_button_tag(:smoking, 'nonsmoker') %>
+  <%= label_tag(:smoking, "No, and I prefer not to be hosted by smokers.") %>
+  <%= radio_button_tag(:smoking, 'easygoing') %>
+  <%= label_tag(:smoking, "No, but I don't mind if my hosts do.") %>
+  <%= radio_button_tag(:smoking, 'smoker') %>
+
+  <p>Are you allergic to cats?</p>
+  <%= label_tag(:cats, 'Yes') %>
+  <%= radio_button_tag(:cats, 'Yes') %>
+  <%= label_tag(:cats, 'No') %>
+  <%= radio_button_tag(:cats, 'No') %>
+
+  <p>Are you allergic to dogs?
+  <%= label_tag(:dogs, "Yes") %>
+  <%= radio_button_tag(:dogs, 'Yes') %>
+  <%= label_tag(:dogs, "No") %>
+  <%= radio_button_tag(:dogs, 'No') %>
+
+  <P>Can you bring your own bedding (i.e. sleeping bag)?</p>
+  <%= label_tag(:bedding, "Yes, I can bring my own bedding if needed.") %>
+  <%= radio_button_tag(:bedding, 'Yes') %>
+  <%= label_tag(:bedding, "No") %>
+  <%= radio_button_tag(:bedding, 'No') %>
+
+  <P>Can you bring your own towel?</p>
+  <%= label_tag(:bedding, "Yes, I can bring my own towel if needed.") %>
+  <%= radio_button_tag(:bedding, 'Yes') %>
+  <%= label_tag(:bedding, "No") %>
+  <%= radio_button_tag(:bedding, 'No') %>
+
+  <p>That's it!</p>
+  <%= f.submit %>
+
+  <% end %>
