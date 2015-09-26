@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :matches
   root 'welcome#index'
 
-  resources :schedules
+  resources :days
   resources :hosts
   resources :guests
   resources :solutions
