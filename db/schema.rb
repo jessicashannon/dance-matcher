@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150926204425) do
+ActiveRecord::Schema.define(version: 20150926211027) do
 
   create_table "arrangements", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20150926204425) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "name"
+    t.integer  "capacity"
   end
 
   create_table "match_arrangements", force: :cascade do |t|

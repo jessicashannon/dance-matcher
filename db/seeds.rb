@@ -11,5 +11,6 @@
 end
 
 10.times do
-  Host.create(name: Faker::Name.name, smokes: 'No', dogs: 'No', cats: 'No', bedding: 'Yes', towels: 'Yes')
+  Host.create(name: Faker::Name.name, smokes: 'No', dogs: 'No', cats: 'No', bedding: 'Yes',
+   towels: 'Yes', capacity: rand(2)+1 )
 end
