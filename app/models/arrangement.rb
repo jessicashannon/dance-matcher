@@ -23,5 +23,3 @@ def find_matches
 end
 
 end
-
-Arrangement.create
