@@ -11,16 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150926010929) do
+ActiveRecord::Schema.define(version: 20150926152246) do
+
+  create_table "days", force: :cascade do |t|
+    t.string   "day"
+    t.integer  "host_id"
+    t.integer  "guest_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "days", ["guest_id"], name: "index_days_on_guest_id"
+  add_index "days", ["host_id"], name: "index_days_on_host_id"
 
   create_table "guests", force: :cascade do |t|
-    t.string   "smoking"
+    t.string   "smokes"
     t.string   "dogs"
     t.string   "cats"
     t.string   "bedding"
     t.string   "towels"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
   end
 
   create_table "hosts", force: :cascade do |t|
@@ -31,18 +43,8 @@ ActiveRecord::Schema.define(version: 20150926010929) do
     t.string   "towels"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
   end
-
-  create_table "days", force: :cascade do |t|
-    t.string   "day"
-    t.integer  "host_id"
-    t.integer  "guest_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "days", ["guest_id"], name: "index_schedules_on_guest_id"
-  add_index "days", ["host_id"], name: "index_schedules_on_host_id"
 
   create_table "welcomes", force: :cascade do |t|
     t.datetime "created_at", null: false

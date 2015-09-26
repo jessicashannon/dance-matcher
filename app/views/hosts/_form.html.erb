@@ -13,36 +13,36 @@
 
 
     <p>Do you smoke?</p>
-    <%= label_tag('host[smokes]', 'Yes') %>
-    <%= radio_button_tag('host[smokes]', 'nonsmoker') %>
-    <%= label_tag('host[smokes]', "No, and I prefer not to host smokers.") %>
-    <%= radio_button_tag('host[smokes]', 'easygoing') %>
-    <%= label_tag('host[smokes]', "No, but I don't mind if my guests do outside.") %>
-    <%= radio_button_tag('host[smokes]', 'smoker') %>
+    <%= label_tag('host[smokes]', 'No, and I prefer not to host smokers.') %>
+    <%= radio_button_tag('host[smokes]', 'No', checked = true) %><br>
+    <%= label_tag('host[smokes]', "No, but I don't mind hosting polite (outside!) smokers.") %>
+    <%= radio_button_tag('host[smokes]', 'easygoing') %><br>
+    <%= label_tag('host[smokes]', "Yes") %>
+    <%= radio_button_tag('host[smokes]', 'smoker') %><br>
 
     <p>Do you have cats?</p>
     <%= label_tag('host[cats]', 'Yes') %>
-    <%= radio_button_tag('host[cats]', 'Yes') %>
+    <%= radio_button_tag('host[cats]', 'Yes') %><br>
     <%= label_tag('host[cats]', 'No') %>
-    <%= radio_button_tag('host[cats]', 'No') %>
+    <%= radio_button_tag('host[cats]', 'No', checked = true) %><br>
 
     <p>Do you have dogs?
     <%= label_tag('host[dogs]', "Yes") %>
-    <%= radio_button_tag('host[dogs]', 'Yes') %>
+    <%= radio_button_tag('host[dogs]', 'Yes') %><br>
     <%= label_tag('host[dogs]', "No") %>
-    <%= radio_button_tag('host[dogs]', 'No') %>
+    <%= radio_button_tag('host[dogs]', 'No', checked = true) %><br>
 
     <P>Can you provide your own bedding (i.e. sleeping bag)?</p>
     <%= label_tag('host[bedding]', "Yes, I have bedding.") %>
-    <%= radio_button_tag('host[bedding]', 'Yes') %>
+    <%= radio_button_tag('host[bedding]', 'Yes', checked = true) %><br>
     <%= label_tag('host[bedding]', "No") %>
-    <%= radio_button_tag('host[bedding]', 'No') %>
+    <%= radio_button_tag('host[bedding]', 'No') %><br>
 
     <P>Can you provide your own towel?</p>
     <%= label_tag('host[towels]', "Yes, I have towels.") %>
-    <%= radio_button_tag('host[towels]', 'Yes') %>
+    <%= radio_button_tag('host[towels]', 'Yes', checked = true) %><br>
     <%= label_tag('host[towels]', "No") %>
-    <%= radio_button_tag('host[towels]', 'No') %>
+    <%= radio_button_tag('host[towels]', 'No') %><br>
 
     <p>That's it!</p>
     <%= f.submit %>
