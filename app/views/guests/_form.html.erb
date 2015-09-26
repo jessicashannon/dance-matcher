@@ -11,6 +11,9 @@
     </div>
   <% end %>
 
+  <p>What's your name?</p>
+  <%= text_field_tag('guest[name]')%><br>
+  
   <p>Do you smoke?</p>
   <%= label_tag('guest[smokes]', 'No') %>
   <%= radio_button_tag('guest[smokes]', 'No', checked = true) %><br>

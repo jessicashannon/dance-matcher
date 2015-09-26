@@ -1,0 +1,6 @@
+<% Match.all.each |match| %>
+  <%= render partial 'host', locals: {host: match.host} %>
+  <% match.guests.each |guest| %>
+    <%= render partial 'guest', locals: {guest: guest} %>
+  <% end %>
+<% end %>
