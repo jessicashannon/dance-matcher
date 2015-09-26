@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root 'welcome#index'
+  
   resources :schedules
   resources :hosts
   resources :guests

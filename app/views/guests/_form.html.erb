@@ -12,36 +12,36 @@
   <% end %>
 
   <p>Do you smoke?</p>
-  <%= label_tag(:smoking, 'Yes') %>
-  <%= radio_button_tag(:smoking, 'nonsmoker') %>
-  <%= label_tag(:smoking, "No, and I prefer not to be hosted by smokers.") %>
-  <%= radio_button_tag(:smoking, 'easygoing') %>
-  <%= label_tag(:smoking, "No, but I don't mind if my hosts do.") %>
-  <%= radio_button_tag(:smoking, 'smoker') %>
+  <%= label_tag('guest[smoking]', 'Yes') %>
+  <%= radio_button_tag('guest[smoking]', 'nonsmoker') %>
+  <%= label_tag('guest[smoking]', "No, and I prefer not to be hosted by smokers.") %>
+  <%= radio_button_tag('guest[smoking]', 'easygoing') %>
+  <%= label_tag('guest[smoking]', "No, but I don't mind if my hosts do.") %>
+  <%= radio_button_tag('guest[smoking]', 'smoker') %>
 
   <p>Are you allergic to cats?</p>
-  <%= label_tag(:cats, 'Yes') %>
-  <%= radio_button_tag(:cats, 'Yes') %>
-  <%= label_tag(:cats, 'No') %>
-  <%= radio_button_tag(:cats, 'No') %>
+  <%= label_tag('guest[cats]', 'Yes') %>
+  <%= radio_button_tag('guest[cats]', 'Yes') %>
+  <%= label_tag('guest[cats]', 'No') %>
+  <%= radio_button_tag('guest[cats]', 'No') %>
 
   <p>Are you allergic to dogs?
-  <%= label_tag(:dogs, "Yes") %>
-  <%= radio_button_tag(:dogs, 'Yes') %>
-  <%= label_tag(:dogs, "No") %>
-  <%= radio_button_tag(:dogs, 'No') %>
+  <%= label_tag('guest[dogs]', "Yes") %>
+  <%= radio_button_tag('guest[dogs]', 'Yes') %>
+  <%= label_tag('guest[dogs]', "No") %>
+  <%= radio_button_tag('guest[dogs]', 'No') %>
 
   <P>Can you bring your own bedding (i.e. sleeping bag)?</p>
-  <%= label_tag(:bedding, "Yes, I can bring my own bedding if needed.") %>
-  <%= radio_button_tag(:bedding, 'Yes') %>
-  <%= label_tag(:bedding, "No") %>
-  <%= radio_button_tag(:bedding, 'No') %>
+  <%= label_tag('guests[bedding]', "Yes, I can bring my own bedding if needed.") %>
+  <%= radio_button_tag('guests[bedding]', 'Yes') %>
+  <%= label_tag('guests[bedding]', "No") %>
+  <%= radio_button_tag('guests[bedding]', 'No') %>
 
   <P>Can you bring your own towel?</p>
-  <%= label_tag(:bedding, "Yes, I can bring my own towel if needed.") %>
-  <%= radio_button_tag(:bedding, 'Yes') %>
-  <%= label_tag(:bedding, "No") %>
-  <%= radio_button_tag(:bedding, 'No') %>
+  <%= label_tag('guest[towels]', "Yes, I can bring my own towel if needed.") %>
+  <%= radio_button_tag('guest[towels]', 'Yes') %>
+  <%= label_tag('guest[towels]', "No") %>
+  <%= radio_button_tag('guest[towels]', 'No') %>
 
   <p>That's it!</p>
   <%= f.submit %>

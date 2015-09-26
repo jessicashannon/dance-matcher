@@ -1,4 +1,4 @@
-class Schedule < ActiveRecord::Base
+class Day < ActiveRecord::Base
   belongs_to :host
   belongs_to :guest
 end
