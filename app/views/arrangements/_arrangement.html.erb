@@ -1,0 +1,6 @@
+<% arrangement.hosts.each do |host| %>
+  Host name: <%= host.name %><br>
+    <% host.guests.each do |guest| %>
+      Guest name: <%= guest.name %> <br>
+    <% end %>
+<% end %>

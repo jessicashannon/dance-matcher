@@ -9,14 +9,15 @@ after_create :find_matches
 private
 
 def find_matches
-  potential_guests = Guest.all
+  potential_guests = []
+  Guest.all.map{|guest| potential_guests << guest.name}
   Host.all.each do |host|
     host.capacity.times do
       random_match = host.matches.sample
-      if potential_guests.include?(random_match.guest)
+      if potential_guests.include?(random_match.guest.name)
         self.match_arrangements.create(match: random_match)
       end
-      potential_guests.delete(random_match.guest)
+      potential_guests.delete(random_match.guest.name)
     end
   end
   puts "I finished!"

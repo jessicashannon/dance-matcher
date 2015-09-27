@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-
-  resources :arrangements
-  resources :solutions
-  resources :matches
   root 'welcome#index'
 
+  resources :arrangements
+  resources :matches
   resources :days
   resources :hosts
   resources :guests
+
+post 'arrangement', to: "arrangements#create", as: "solve"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

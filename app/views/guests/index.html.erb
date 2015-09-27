@@ -5,7 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>smokes</th>
+      <th>Name</th>
+      <th>Smokes</th>
       <th>Dogs</th>
       <th>Cats</th>
       <th>Bedding</th>
@@ -17,6 +18,7 @@
   <tbody>
     <% @guests.each do |guest| %>
       <tr>
+        <td><%= guest.name %></td>
         <td><%= guest.smokes %></td>
         <td><%= guest.dogs %></td>
         <td><%= guest.cats %></td>
