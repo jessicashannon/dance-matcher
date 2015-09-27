@@ -1,10 +1,4 @@
 
-<p><%= link_to "I'm a guest", new_guest_path %></p>
-
-<p><%= link_to "I'm a host", new_host_path %></p>
-
-<p><%= link_to "View all the hosts", hosts_path %></p>
-
-<p><%= link_to "View all the guests", guests_path %></p>
-
-<p><%= button_to "I want to create a new solution", solve_path %>
+  <%= link_to "I'm a guest", new_guest_path, class: "btn btn-lg btn-default", id: "guestChoiceButton", remote: true %>
+  <%= link_to "I'm a host", new_host_path, class: "btn btn-lg btn-default", id: "hostChoiceButton", remote: true %>
+  <%# button_to "I want to create a new solution", solve_path, class: "btn btn-md btn-default" %>
