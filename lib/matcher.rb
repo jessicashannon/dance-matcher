@@ -1,18 +1,5 @@
 module Matcher
-
-  # def match
-  #   solution = Solution.new
-  #   solution.host = @host
-  #   solution.guests = []
-  #   guests.each do |guest|
-  #     @guest = guest
-  #     if compatible_pair?
-  #       solution.guests << @guest
-  #     end
-  #   end
-  #   solution
-  # end
-
+  
   def compatible_pair?(host, guest)
     smokes_match?(host,guest) &&
     pets_match?(host,guest) &&

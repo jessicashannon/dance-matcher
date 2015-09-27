@@ -4,6 +4,7 @@ class Guest < ActiveRecord::Base
   has_many :hosts, through: :matches
   after_create :create_matches
 
+
 private
 
   def create_matches

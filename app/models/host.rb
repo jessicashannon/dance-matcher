@@ -6,6 +6,8 @@ class Host < ActiveRecord::Base
   has_many :guests, through: :matches
   after_create :create_matches
 
+
+
   private
 
   def create_matches
