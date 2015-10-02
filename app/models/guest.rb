@@ -1,18 +1,5 @@
 class Guest < ActiveRecord::Base
-  include Matcher
-  has_many :matches
-  has_many :hosts, through: :matches
-  after_create :create_matches
+has_many :hosts, through: :arrangements
 
-
-private
-
-  def create_matches
-    Host.all.each do |host|
-      if compatible_pair?(host,self)
-        Match.create(guest: self, host: host)
-      end
-    end
-  end
 
 end

@@ -1,7 +1,8 @@
 class ArrangementsController < ApplicationController
 
   def create
-    @arrangement = Arrangement.create
+    @arrangement = Arrangement.new
+    @arrangement.save
     redirect_to arrangements_path
   end
 

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :hosts
   resources :guests
 
-post 'arrangement', to: "arrangements#create", as: "solve"
+post 'arrangement', to: "arrangements#create", as: 'create_arrangement'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
