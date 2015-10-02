@@ -2,17 +2,16 @@ class Arrangement < ActiveRecord::Base
 has_many :guests
 has_many :hosts
 
-def update
-  Guest.all.each do |guest|
-    Host.all.each do |host|
-      if compatible_pair?(host, guest)
-        Match.create(host: host, guest: guest)
-      end
-    end
-  end
+guest_array = Guest.all
+host_array = Host.all
+
+def create
+  super
 end
 
-def compatible_pair?(host, guest)
+
+
+def match?(host, guest)
   smokes_match?(host,guest) &&
   pets_match?(host,guest) &&
   bedding_match?(host,guest) &&
