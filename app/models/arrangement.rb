@@ -1,24 +1,51 @@
 class Arrangement < ActiveRecord::Base
-has_many :guests
-has_many :hosts
+belongs_to :host
+belongs_to :guest
 
-guest_array = Guest.all
-host_array = Host.all
 
-def create
-  super
+def self.make
+  Arrangement.delete_all
+  guest_array = Guest.all.to_a
+  host_array = Host.all.to_a
+  leftover_guests = guest_array
+  host_array.each do |host|
+    guest_array.each do |guest|
+      if is_compatible?(host,guest) && (host.capacity > Arrangement.where(host_id: host.id).count) &&
+        leftover_guests.include?(guest)
+          @arrangement = Arrangement.create
+          @arrangement.host = host
+          @arrangement.guest = guest
+          @arrangement.save
+          leftover_guests.delete(guest)
+      end
+    end
+  end
 end
 
+def self.guests
+  guests = []
+  self.all.each do |arrangement|
+    guests << arrangement.guest
+  end
+  guests
+end
 
+def self.hosts
+  hosts = []
+  Arrangement.all.each do |arrangement|
+    hosts << arrangement.host
+  end
+  hosts
+end
 
-def match?(host, guest)
+def self.is_compatible?(host, guest)
   smokes_match?(host,guest) &&
   pets_match?(host,guest) &&
   bedding_match?(host,guest) &&
   towels_match?(host,guest)
 end
 
-def smokes_match?(host, guest)
+def self.smokes_match?(host, guest)
   if host.smokes == 'Yes' && guest.smokes == 'Yes'
     true
   elsif host.smokes == 'Yes' && guest.smokes == "easygoing"
@@ -32,7 +59,7 @@ def smokes_match?(host, guest)
   end
 end
 
-def pets_match?(host, guest)
+def self.pets_match?(host, guest)
   if host.dogs == "Yes" && guest.dogs == "Yes"
     true
   elsif host.dogs == "No" && guest.dogs == "No"
@@ -46,7 +73,7 @@ def pets_match?(host, guest)
   end
 end
 
-def bedding_match?(host, guest)
+def self.bedding_match?(host, guest)
   if host.bedding == "Yes" && guest.bedding == "Yes"
     true
   elsif host.bedding == "No" && guest.bedding == "No"
@@ -60,7 +87,7 @@ def bedding_match?(host, guest)
   end
 end
 
-def towels_match?(host,guest)
+def self.towels_match?(host,guest)
   if host.towels == "Yes" && guest.towels == "Yes"
     true
   elsif host.towels == "No" && guest.towels == "No"
@@ -73,17 +100,5 @@ def towels_match?(host,guest)
     false
   end
 end
-
-  private
-
-  def find_matches
-    potential_guests = Guest.all
-    Host.all.each do |host|
-      host.capacity.times do
-        random_match = host.matches.sample
-        self.match_arrangements.create(match: random_match)
-      end
-    end
-  end
 
 end

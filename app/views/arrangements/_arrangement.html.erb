@@ -1,6 +1,3 @@
-<% arrangement.hosts.each do |host| %>
-  Host name: <%= host.name %><br>
-    <% host.guests.each do |guest| %>
-      Guest name: <%= guest.name %> <br>
-    <% end %>
-<% end %>
+
+    Host name: <%= arrangement.host.name if arrangement.host %><br>
+    Guest name: <%= arrangement.guest.name if arrangement.guest %> <br>
