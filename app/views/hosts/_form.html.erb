@@ -15,10 +15,8 @@
   <%= text_field_tag('host[name]')%><br>
 
     <p>Do you smoke?</p>
-    <%= label_tag('host[smokes]', 'No, and I prefer not to host smokers.') %>
+    <%= label_tag('host[smokes]', 'No.') %>
     <%= radio_button_tag('host[smokes]', 'No', checked = true) %><br>
-    <%= label_tag('host[smokes]', "No, but I don't mind hosting polite (outside!) smokers.") %>
-    <%= radio_button_tag('host[smokes]', 'easygoing') %><br>
     <%= label_tag('host[smokes]', "Yes") %>
     <%= radio_button_tag('host[smokes]', 'smoker') %><br>
 

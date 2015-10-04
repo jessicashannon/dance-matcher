@@ -7,6 +7,5 @@ class ArrangementsController < ApplicationController
 
   def index
     @arrangements = Arrangement.all
-    binding.pry
   end
 end

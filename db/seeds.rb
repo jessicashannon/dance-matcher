@@ -6,11 +6,38 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-20.times do
-  Guest.create(name: Faker::Name.name, smokes: 'No', dogs: 'No', cats: 'No', bedding: 'Yes', towels: 'Yes')
+5.times do
+  Guest.create(name: Faker::Name.name, smokes: false, dogs: false, cats: true, bedding: true, towels: true)
 end
 
-10.times do
-  Host.create(name: Faker::Name.name, smokes: 'No', dogs: 'No', cats: 'No', bedding: 'Yes',
-   towels: 'Yes', capacity: rand(2)+1 )
+5.times do
+  Guest.create(name: Faker::Name.name, smokes: false, dogs: false, cats: false, bedding: true, towels: true)
+end
+#
+5.times do
+  Guest.create(name: Faker::Name.name, smokes: true, dogs: false, cats: false, bedding: true, towels: true)
+end
+
+5.times do
+  Guest.create(name: Faker::Name.name, smokes: false, dogs: false, cats: false, bedding: true, towels: true)
+end
+
+3.times do
+  Host.create(name: Faker::Name.name, smokes: false, dogs: false, cats: false, bedding: true,
+   towels: true, capacity: rand(3)+1 )
+end
+
+3.times do
+  Host.create(name: Faker::Name.name, smokes: false, dogs: false, cats: true, bedding: true,
+   towels: true, capacity: rand(3)+1 )
+end
+
+3.times do
+  Host.create(name: Faker::Name.name, smokes: false, dogs: false, cats: true, bedding: true,
+   towels: true, capacity: rand(2)+1 )
+end
+
+3.times do
+  Host.create(name: Faker::Name.name, smokes: false, dogs: false, cats: false, bedding: true,
+   towels: true, capacity: rand(2)+1 )
 end

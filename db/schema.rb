@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151002004419) do
+ActiveRecord::Schema.define(version: 20151004180744) do
 
   create_table "arrangements", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -24,22 +24,22 @@ ActiveRecord::Schema.define(version: 20151002004419) do
   add_index "arrangements", ["host_id"], name: "index_arrangements_on_host_id"
 
   create_table "guests", force: :cascade do |t|
-    t.string   "smokes"
-    t.string   "dogs"
-    t.string   "cats"
-    t.string   "bedding"
-    t.string   "towels"
+    t.boolean  "smokes"
+    t.boolean  "dogs"
+    t.boolean  "cats"
+    t.boolean  "bedding"
+    t.boolean  "towels"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "name"
   end
 
   create_table "hosts", force: :cascade do |t|
-    t.string   "smokes"
-    t.string   "dogs"
-    t.string   "cats"
-    t.string   "bedding"
-    t.string   "towels"
+    t.boolean  "smokes"
+    t.boolean  "dogs"
+    t.boolean  "cats"
+    t.boolean  "bedding"
+    t.boolean  "towels"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "name"

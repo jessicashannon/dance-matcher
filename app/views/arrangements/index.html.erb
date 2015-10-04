@@ -1,1 +1,15 @@
-<%= render @arrangements %>
+<p>Report: Out of <%= Host.all.count %> total hosts and <%= Guest.all.count %> total guests, you
+were able to match <%= Arrangement.hosts.uniq.count %> hosts and
+<%= Arrangement.guests.count %> guests.  Your hosts are
+at <%= (Arrangement.guests.count.to_f/Host.capacity.to_f)*100 %>% capacity with
+<%= Guest.all.count-Arrangement.guests.count %> unmatched guests.
+</p>
+<%# render @arrangements %>
+<%= button_to "I want to create a new solution", create_arrangement_path, class: "btn btn-lg btn-default" %>
+
+<% Arrangement.hosts.uniq.each do |host| %>
+  Host name: <%= host.name %><br>
+    <% host.guests.each do |guest| %>
+    - Guest name: <%= guest.name %><br>
+    <% end %>
+<% end %>
