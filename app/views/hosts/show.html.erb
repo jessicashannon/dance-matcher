@@ -1,5 +1,17 @@
-<p id="notice"><%= notice %></p>
+<div class="container" id="bump-down">
+  <div class="row">
+    <div class="col-lg-12">
+      <legend>Host Info</legend>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-5">
+      <p id="notice"><%= notice %></p>
 
+<p>
+    <strong>Your name is:</strong>
+    <%= @host.name %>
+    </p>
 <p>
   <strong>Smokes:</strong>
   <%= @host.smokes %>
@@ -27,3 +39,7 @@
 
 <%= link_to 'Edit', edit_host_path(@host) %> |
 <%= link_to 'Back', hosts_path %>
+
+    </div>
+  </div>
+</div>

@@ -1,1 +1,122 @@
-<%= render 'form' %>
+<div class="container" id="bump-down">
+  <div class="row">
+    <div class="col-lg-12">
+      <!-- Form Name -->
+      <legend>I need a place to stay!</legend>
+    </div>
+    <div class="col-lg-5">
+      <fieldset>
+
+  <%= form_for(@guest, url: {action: "create"}, :html => { :class => "form-horizontal" }) do |f| %>
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Name</label>
+        <div class="col-md-4">
+        <%= text_field_tag('guest[name]', "Your name here") %>
+        </div>
+      </div>
+
+<!-- Radio buttons -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="radios">Do you smoke?</label>
+    <div class="col-md-6">
+      <div class="radio">
+        <label for="guest_smokes_true">
+          <%= radio_button_tag('guest[smokes]', false, checked = true) %>
+          Yes
+        </label>
+      </div>
+      <div class="radio">
+        <label for="guest_smokes_false">
+          <%= radio_button_tag('guest[smokes]', true) %>
+          No
+        </label>
+      </div>
+    </div>
+</div>
+<!--  -->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="radios">Are you allergic to cats?</label>
+    <div class="col-md-6">
+      <div class="radio">
+        <label for="guest_cats_true">
+          <%= radio_button_tag('guest[cats]', false, checked = true) %> No<br>
+        </label>
+      </div>
+      <div class="radio">
+        <label for="guest_cats_false">
+          <%= radio_button_tag('guest[cats]', true) %> Yes - I can't stay in a home with cats.
+        </label>
+      </div>
+    </div>
+</div>
+
+<!--  -->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="radios">Are you allergic to dogs?</label>
+    <div class="col-md-6">
+      <div class="radio">
+        <label for="guest_dogs_true">
+          <%= radio_button_tag('guest[dogs]', false, checked = true) %> No, I'm not allergic<br>
+        </label>
+      </div>
+      <div class="radio">
+        <label for="guest_dogs_false">
+          <%= radio_button_tag('guest[dogs]', true) %> Yes - I can't stay in a home with dogs
+        </label>
+      </div>
+    </div>
+</div>
+
+</div>
+
+<!--  -->
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="radios">Can you provide your own bedding if needed (e.g. sleeping bag)?</label>
+        <div class="col-md-6">
+          <div class="radio">
+            <label for="guest_bedding_true">
+              <%= radio_button_tag('guest[bedding]', false, checked = true) %> No<br>
+            </label>
+          </div>
+          <div class="radio">
+            <label for="guest_bedding_false">
+              <%= radio_button_tag('guest[bedding]', true) %> Yes
+            </label>
+          </div>
+        </div>
+    </div>
+
+<!--  -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="radios">Can you provide your own towel if needed?</label>
+        <div class="col-md-6">
+          <div class="radio">
+            <label for="guest_towels_true">
+              <%= radio_button_tag('guest[towels]', true) %> Yes
+            </label>
+          </div>
+          <div class="radio">
+            <label for="guest_towels_false">
+              <%= radio_button_tag('guest[towels]', false, checked = true) %> No<br>
+            </label>
+          </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="radios">That's it!</label>
+        <div class="col-md-6">
+          <%= f.submit class: "btn btn-default btn-lg" %>
+        </div>
+    </div>
+
+  </fieldset>
+ <% end %>
+
+
+    </div>
+  </div>

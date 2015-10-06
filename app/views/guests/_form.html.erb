@@ -1,16 +1,5 @@
 <%= form_for(@guest) do |f| %>
-  <% if @guest.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@guest.errors.count, "error") %> prohibited this guest from being saved:</h2>
 
-      <ul>
-      <% @guest.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-<div class="hideForNow">
 <div id="guestName">
   <%= label_tag('guest[name]', "What's your name?") %><br>
   <%= text_field_tag('guest[name]')%>
@@ -18,45 +7,45 @@
 
 <div id="guestSmokes">  <p>Do you smoke?</p>
   <%= label_tag('guest[smokes]', 'No') %>
-  <%= radio_button_tag('guest[smokes]', 'No', checked = true) %><br>
+  <%= radio_button_tag('guest[smokes]', false, checked = true) %><br>
   <%= label_tag('guest[smokes]', "Yes") %>
-  <%= radio_button_tag('guest[smokes]', 'Yes') %><br>
+  <%= radio_button_tag('guest[smokes]', true) %><br>
 </div>
 
 <div id="guestCats"><p>Are you allergic to cats?</p>
   <%= label_tag('guest[cats]', "I can't stay in a home with cats.") %>
-  <%= radio_button_tag('guest[cats]', 'Yes') %><br>
+  <%= radio_button_tag('guest[cats]', true) %><br>
   <%= label_tag('guest[cats]', 'No, cats are fine.') %>
-  <%= radio_button_tag('guest[cats]', 'No', checked = true) %><br>
+  <%= radio_button_tag('guest[cats]', false, checked = true) %><br>
 </div>
 
-<div id="guestDogs">
+<div id="guestDogs" class="form-control">
     <p>Are you allergic to dogs?
   <%= label_tag('guest[dogs]', "I can't stay in a home with dogs.") %>
-  <%= radio_button_tag('guest[dogs]', 'Yes') %><br>
+  <%= radio_button_tag('guest[dogs]', true) %><br>
   <%= label_tag('guest[dogs]', "No, dogs are fine.") %>
-  <%= radio_button_tag('guest[dogs]', 'No', checked = true) %><br>
+  <%= radio_button_tag('guest[dogs]', false, checked = true) %><br>
 </div>
 
-  <div id="guestBedding">
+  <div id="guestBedding" class="form-control">
     <P>Can you bring your own bedding (i.e. sleeping bag)?</p>
   <%= label_tag('guest[bedding]', "Yes, I can bring my own bedding if needed.") %>
-  <%= radio_button_tag('guest[bedding]', 'Yes', checked = true) %><br>
+  <%= radio_button_tag('guest[bedding]', true, checked = true) %><br>
   <%= label_tag('guest[bedding]', "No") %>
-  <%= radio_button_tag('guest[bedding]', 'No') %><br>
+  <%= radio_button_tag('guest[bedding]', false) %><br>
 </div>
 
-  <div id="guestTowel">
+  <div id="guestTowel" class="form-control">
     <P>Can you bring your own towel?</p>
   <%= label_tag('guest[towels]', "Yes, I can bring my own towel if needed.") %>
-  <%= radio_button_tag('guest[towels]', 'Yes', checked = true) %><br>
+  <%= radio_button_tag('guest[towels]', true, checked = true) %><br>
   <%= label_tag('guest[towels]', "No") %>
-  <%= radio_button_tag('guest[towels]', 'No') %><br>
+  <%= radio_button_tag('guest[towels]', false) %><br>
 </div>
 
   <div id="guestSubmit">
     <p>That's it!</p>
-  <%= f.submit %>
+  <%= f.submit class: "btn btn-default btn-lg" %>
 </div>
 </div>
 

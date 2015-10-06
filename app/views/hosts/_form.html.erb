@@ -16,33 +16,33 @@
 
     <p>Do you smoke?</p>
     <%= label_tag('host[smokes]', 'No.') %>
-    <%= radio_button_tag('host[smokes]', 'No', checked = true) %><br>
+    <%= radio_button_tag('host[smokes]', false, checked = true) %><br>
     <%= label_tag('host[smokes]', "Yes") %>
-    <%= radio_button_tag('host[smokes]', 'smoker') %><br>
+    <%= radio_button_tag('host[smokes]', true) %><br>
 
     <p>Do you have cats?</p>
     <%= label_tag('host[cats]', 'Yes') %>
-    <%= radio_button_tag('host[cats]', 'Yes') %><br>
+    <%= radio_button_tag('host[cats]', true) %><br>
     <%= label_tag('host[cats]', 'No') %>
-    <%= radio_button_tag('host[cats]', 'No', checked = true) %><br>
+    <%= radio_button_tag('host[cats]', false, checked = true) %><br>
 
     <p>Do you have dogs?
     <%= label_tag('host[dogs]', "Yes") %>
-    <%= radio_button_tag('host[dogs]', 'Yes') %><br>
+    <%= radio_button_tag('host[dogs]', true) %><br>
     <%= label_tag('host[dogs]', "No") %>
-    <%= radio_button_tag('host[dogs]', 'No', checked = true) %><br>
+    <%= radio_button_tag('host[dogs]', false, checked = true) %><br>
 
     <P>Can you provide your own bedding (i.e. sleeping bag)?</p>
     <%= label_tag('host[bedding]', "Yes, I have bedding.") %>
-    <%= radio_button_tag('host[bedding]', 'Yes', checked = true) %><br>
+    <%= radio_button_tag('host[bedding]', true, checked = true) %><br>
     <%= label_tag('host[bedding]', "No") %>
-    <%= radio_button_tag('host[bedding]', 'No') %><br>
+    <%= radio_button_tag('host[bedding]', false) %><br>
 
     <P>Can you provide your own towel?</p>
     <%= label_tag('host[towels]', "Yes, I have towels.") %>
-    <%= radio_button_tag('host[towels]', 'Yes', checked = true) %><br>
+    <%= radio_button_tag('host[towels]', true, checked = true) %><br>
     <%= label_tag('host[towels]', "No") %>
-    <%= radio_button_tag('host[towels]', 'No') %><br>
+    <%= radio_button_tag('host[towels]', false) %><br>
 
     <p>That's it!</p>
     <%= f.submit %>
