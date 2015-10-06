@@ -2,21 +2,19 @@ class Arrangement < ActiveRecord::Base
 belongs_to :host
 belongs_to :guest
 
-  def self.make_needy_matches_first ##Still chance this might not match --
-    # Need to rewrite so it returns success, or has checked all possible options
-    guest_array = needy_guests
+  def self.make_needy_matches_first # Take a random pass at matching needy guests 
+    guest_array = needy_guests.shuffle
     host_array = Host.all.to_a.shuffle
     @leftover_guests = guest_array
     host_array.each do |host|
       guest_array.each do |guest|
         if match?(host, guest)
-            Arrangement.create(host: host, guest: guest)
-            @leftover_guests.delete(guest)
+          Arrangement.create(host: host, guest: guest)
+          @leftover_guests.delete(guest)
         end
       end
     end
   end
-
 
   def self.needy?(person)
     person.smokes == true ||
@@ -48,9 +46,14 @@ belongs_to :guest
 
   def self.make
     reset
-    make_needy_matches_first
-    guest_array = Guest.all - needy_guests + @leftover_guests ## Revisit why there are leftovers
+    counter = 1
+    until Arrangement.all.count == needy_guests.count || counter == 1000
+      make_needy_matches_first
+      counter += 1
+    end
+    guest_array = Guest.all - needy_guests
     host_array = Host.all.to_a.shuffle
+    @leftover_guests = guest_array
     host_array.each do |host|
       guest_array.each do |guest|
         if match?(host, guest)
@@ -61,11 +64,27 @@ belongs_to :guest
     end
   end
 
-  def self.reset
+  def self.reset # Clear any previous arrangements.
     Arrangement.delete_all
   end
 
-  def self.match?(host,guest)
+  def self.guests # Helper method for view: all the guests
+    guests = []
+    self.all.each do |arrangement|
+      guests << arrangement.guest
+    end
+    guests
+  end
+
+  def self.hosts # Helper method for view: all the hosts
+    hosts = []
+    Arrangement.all.each do |arrangement|
+      hosts << arrangement.host
+    end
+    hosts
+  end
+
+  def self.match?(host,guest) # They are both compatible and available
     is_compatible?(host,guest) &&
     (host.capacity > host.guests.count) &&
     @leftover_guests.include?(guest)
@@ -93,7 +112,6 @@ belongs_to :guest
       true
     end
   end
-
 
   def self.bedding_match?(host, guest) #At least one of them has bedding
     if host.bedding || guest.bedding
