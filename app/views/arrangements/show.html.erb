@@ -1,11 +1,18 @@
-<p>Report: Out of <%= Host.all.count %> total hosts and <%= Guest.all.count %> total guests, you
+<div class="container" id="bump-down">
+  <div class="row">
+    <div class="col-lg-12">
+      <!-- Form Name -->
+      <legend>Housing Report</legend>
+    </div>
+    <div class="col-lg-5">
+
+<p>Out of <%= Host.all.count %> total hosts and <%= Guest.all.count %> total guests, you
 were able to match <%= Arrangement.hosts.uniq.count %> hosts and
 <%= Arrangement.guests.count %> guests.  Your hosts are
 at <%= (Arrangement.guests.count.to_f/Host.capacity.to_f)*100 %>% capacity with
 <%= Guest.all.count-Arrangement.guests.count %> unmatched guests.
 </p>
-<%# render @arrangements %>
-<%= button_to "I want to create a new solution", create_arrangement_path, class: "btn btn-lg btn-default" %>
+<a href="/arrangements/create" class="btn btn-default btn-lg" method="post">New arrangement</a>
 
 <% Arrangement.hosts.uniq.each do |host| %>
   Host name: <%= host.name %><br>
@@ -13,3 +20,6 @@ at <%= (Arrangement.guests.count.to_f/Host.capacity.to_f)*100 %>% capacity with
     - Guest name: <%= guest.name %><br>
     <% end %>
 <% end %>
+
+</div>
+</div>

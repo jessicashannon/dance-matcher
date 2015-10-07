@@ -1,4 +1,6 @@
 class HostsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :authenticate_admin, only: [:create, :edit, :update, :destroy]
   before_action :set_host, only: [:show, :edit, :update, :destroy]
 
   # GET /hosts
@@ -24,14 +26,15 @@ class HostsController < ApplicationController
   # POST /hosts
   # POST /hosts.json
   def create
+    binding.pry
     @host = Host.new(host_params)
 
     respond_to do |format|
       if @host.save
-        format.html { redirect_to @host, notice: 'Host was successfully created.' }
+        format.html { redirect_to '/', notice: 'Host successfully created!' }
         format.json { render :show, status: :created, location: @host }
       else
-        format.html { render :new }
+        format.html { render :new, alert: "We couldn't create your host profile. Please try again."  }
         format.json { render json: @host.errors, status: :unprocessable_entity }
       end
     end

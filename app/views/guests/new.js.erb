@@ -1,7 +1,0 @@
-$('#welcome').empty()
-$('#guestChoiceButton').remove();
-$('#hostChoiceButton').remove();
-
-$('.lead').html('<%= form_for(@guest) do |f| %> <div id="stuffgoeshere"></div> <% end %>');
-// $('#guestName').show();
-$('#stuffgoeshere').load('_form.html.erb #guestName');

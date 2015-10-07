@@ -2,7 +2,7 @@ class Arrangement < ActiveRecord::Base
 belongs_to :host
 belongs_to :guest
 
-  def self.make_needy_matches_first # Take a random pass at matching needy guests 
+  def self.make_needy_matches_first # Take a random pass at matching needy guests
     guest_array = needy_guests.shuffle
     host_array = Host.all.to_a.shuffle
     @leftover_guests = guest_array
