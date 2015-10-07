@@ -1,4 +1,5 @@
 class Host < ActiveRecord::Base
+belongs_to :user
 has_many :arrangements
 has_many :guests, through: :arrangements
 
