@@ -9,12 +9,24 @@
                     <h1>Housr</h1>
                     <hr class="intro-divider">
                     <ul class="list-inline intro-social-buttons">
+                      <% if admin_signed_in? %>
+                      <li>
+                          <a href="/guests" class="btn btn-default btn-lg"><i class="fa fa-suitcase"></i><span class="network-name">Guests</span></a>
+                      </li>
+                      <li>
+                          <a href="/hosts" class="btn btn-default btn-lg"><i class="fa fa-home"></i></i> <span class="network-name">Hosts</span></a>
+                      </li>
+                      <li>
+                          <a href="/arrangements/new" class="btn btn-default btn-lg"><i class="fa fa-lock"></i></i> <span class="network-name">Arrangements</span></a>
+                      </li>
+                      <% else %>
                         <li>
                             <a href="/guests/new" class="btn btn-default btn-lg"><i class="fa fa-suitcase"></i><span class="network-name"> I'm a guest</span></a>
                         </li>
                         <li>
                             <a href="/hosts/new" class="btn btn-default btn-lg"><i class="fa fa-home"></i></i> <span class="network-name"> I can host</span></a>
                         </li>
+                      <% end %>
                     </ul>
                 </div>
             </div>

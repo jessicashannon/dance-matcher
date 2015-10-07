@@ -1,5 +1,6 @@
 class GuestsController < ApplicationController
   before_action :authenticate_user!
+  before_action :authenticate_admin, only: [:create, :edit, :update, :destroy]
   before_action :set_guest, only: [:show, :edit, :update, :destroy]
 
   # GET /guests
