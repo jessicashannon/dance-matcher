@@ -7,8 +7,7 @@
 
       <p>You have <%= @hosts.count %> hosts and <%= @guests.count %> guests.</p>
       <p>Generate a suggested housing arrangement?</p>
-      <p><a href="/arrangements/create" class="btn btn-default btn-lg" method="post"><i class="fa fa-lock">
-      </i></i> <span class="network-name">Arrangements</span></a></p>
+      <%= link_to("Arrangements", create_arrangement_path, class:"btn btn-default btn-lg fa fa-lock network-name", :method => :post) %>
     </div>
   </div>
 </div>

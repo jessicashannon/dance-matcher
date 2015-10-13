@@ -6,9 +6,8 @@ class ArrangementsController < ApplicationController
   end
 
   def create
-    Arrangement.make # this isn't being called and I don't know why
-    @arrangements = Arrangement.all # this much works
-#    redirect_to arrangements_path # also not working
+    Arrangement.make
+    @arrangements = Arrangement.all
   end
 
   def show

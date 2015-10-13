@@ -47,7 +47,7 @@ belongs_to :guest
   def self.make
     reset
     counter = 1
-    until Arrangement.all.count == needy_guests.count || counter == 1000
+    until Arrangement.all.count == needy_guests.count || counter == 100
       make_needy_matches_first
       counter += 1
     end

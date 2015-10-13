@@ -11,13 +11,14 @@
       at <%= (Arrangement.guests.count.to_f/Host.capacity.to_f)*100 %>% capacity with
       <%= Guest.all.count-Arrangement.guests.count %> unmatched guests.
       </p>
-      <a href="/arrangements/create" class="btn btn-default btn-lg" method="post">New arrangement</a>
+      <p>
+      <%= link_to("Arrangements", create_arrangement_path, class:"btn btn-default btn-lg fa fa-lock network-name", :method => :post) %></p>
 
       <% Arrangement.hosts.uniq.each do |host| %>
-        Host name: <%= host.name %><br>
+        <p>Host name: <%= host.name %><br>
           <% host.guests.each do |guest| %>
           - Guest name: <%= guest.name %><br>
-          <% end %>
+          <% end %></p>
       <% end %>
 
   </div>

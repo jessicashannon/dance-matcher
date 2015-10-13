@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   devise_for :users
   root 'welcome#index'
 
+  post 'arrangement', to: "arrangements#create", as: 'create_arrangement'
+
   resources :arrangements
   resources :hosts
   resources :guests
 
-post 'arrangement', to: "arrangements#create", as: 'create_arrangement'
 
 get 'about', to: "welcome#about"
 
