@@ -1,6 +1,6 @@
 class HostsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :authenticate_admin, only: [:create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_admin!, only: [:create, :edit, :update, :destroy, :index]
   before_action :set_host, only: [:show, :edit, :update, :destroy]
 
   # GET /hosts
