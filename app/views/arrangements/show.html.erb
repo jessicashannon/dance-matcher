@@ -1,0 +1,8 @@
+<%= link_to("Arrangements", create_arrangement_path, class:"btn btn-default btn-lg fa fa-lock network-name", :method => :post) %></p>
+
+<% Arrangement.hosts.uniq.each do |host| %>
+  <p>Host name: <%= host.name %><br>
+    <% host.guests.each do |guest| %>
+    - Guest name: <%= guest.name %><br>
+    <% end %></p>
+<% end %>

@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6">
+      <h2>All the guests.</h2>
+      <div class="table-responsive">
+          <table class="table table-bordered table-hover table-striped">
+              <thead>
+                  <tr>
+                      <th>Guest</th>
+                      <th>Smokes?</th>
+                      <th>Allergies</th>
+                      <th>Bedding & Towels</th>
+                      <th></th>
+                      <th></th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <% guests.each do |guest| %>
+                  <tr>
+                      <td><%= link_to guest.name, guest %></td>
+                      <td><%= guest.smokes %></td>
+                      <td><%= guest.dogs %> & <%= guest.cats %></td>
+                      <td><%= guest.bedding %> & <%= guest.towels %></td>
+                      <td><%= link_to 'Edit', edit_guest_path(guest) %></td>
+                      <td><%= link_to 'Destroy', guest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  </tr>
+                  <% end %>
+              </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+</div>

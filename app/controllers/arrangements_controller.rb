@@ -1,5 +1,5 @@
 class ArrangementsController < ApplicationController
-
+  layout :layout_choice
   def new
     @hosts = Host.all
     @guests = Guest.all
@@ -8,6 +8,7 @@ class ArrangementsController < ApplicationController
   def create
     Arrangement.make
     @arrangements = Arrangement.all
+    render :index, :layout => 'admin'
   end
 
   def show
@@ -16,4 +17,11 @@ class ArrangementsController < ApplicationController
   def index
     @arrangements = Arrangement.all
   end
+
+  private
+
+  def layout_choice
+    admin_signed_in? ? "admin" : "application"
+  end
+
 end
